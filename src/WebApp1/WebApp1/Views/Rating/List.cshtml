@@ -1,0 +1,72 @@
+﻿@model IEnumerable<WebApp1.Models.PerformanceViewModel>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Employee Reviews</h2>
+<div class="row">
+    @Html.ActionLink("Platinum", "List", "Rating", new { id = 1 }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Gold", "List", "Rating", new { id = 2 }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Silver", "List", "Rating", new { id = 3 }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Bronze", "List", "Rating", new { id = 4 }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Black", "List", "Rating", new { id = 5 }, new { @class = "btn btn-default" })
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Department</th>
+            <th>Role</th>
+            <th>Review Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Employee.Id
+                </td>
+                <td>
+                    @item.Employee.Name
+                </td>
+                <td>
+                    @item.Employee.Address
+                </td>
+                <td>
+                    @item.Employee.Dept
+                </td>
+                <td>
+                    @item.Employee.Role
+                </td>
+                <td>
+                    <table class="grid">
+                        <tr>
+                            <th>Competency</th>
+                            <th>Rating</th>
+                            <th>Comments</th>
+                        </tr>
+                        @foreach (var review in item.Reviews)
+                        {
+                            <tr>
+                                <td>@review.Competency
+                                </td>
+                                <td>@review.CompetencyRating
+                                </td>
+                                <td>@review.Comments
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", "Rating", new { id = @review.EmployeeId, competency = @review.Competency  }, new { @class = "btn" })
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </td>
+            </tr>
+            
+        }
+    </tbody>
+</table>

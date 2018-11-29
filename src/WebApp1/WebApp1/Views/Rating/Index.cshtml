@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Employee Ratings";
+}
+
+<div class="row">
+    @Html.ActionLink("Platinum", "List", "Rating", new { id = 1 }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Gold", "List", "Rating", new { id = 2 }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Silver", "List", "Rating", new { id = 3 }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Bronze", "List", "Rating", new { id = 4 }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Black", "List", "Rating", new { id = 5 }, new { @class = "btn btn-default" })
+</div>

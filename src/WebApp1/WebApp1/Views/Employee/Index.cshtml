@@ -1,0 +1,45 @@
+﻿@model List<WebApp1.Models.EmployeeViewModel>
+@{
+    ViewBag.Title = "Employee Page";
+}
+
+<div class="row">
+    <table class="grid">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Department</th>
+                <th>Role</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>
+                    @emp.Id
+                </td>
+                <td>
+                    @emp.Name
+                </td>
+                <td>
+                    @emp.Address
+                </td>
+                <td>
+                    @emp.Dept
+                </td>
+                <td>
+                    @emp.Role
+                </td>
+                <td>
+                    @Html.ActionLink("View", "Detail", "Employee", new { id = @emp.Id }, new { @class = "btn btn-default" })
+                </td>
+            </tr>
+        }
+        </tbody>
+       
+    </table>
+</div>
